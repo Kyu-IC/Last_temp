@@ -57,6 +57,11 @@ function MainPage() {
     navigate('/login');  // Redirect to login page
   };
 
+  // Navigate to the RegisterPage
+  const redirectToRegisterPage = () => {
+    navigate('/register'); // Redirect to the RegisterPage
+  };
+
   return (
     <div className="main-container">
       <nav className="navbar">
@@ -66,6 +71,8 @@ function MainPage() {
         <div className="navbar-right">
           <ul className="navbar-links">
             <li><a href="#" onClick={handleLogout}>Logout</a></li>
+            {/* Add the redirect to register page */}
+            <li><a href="#" onClick={redirectToRegisterPage}>Sign up</a></li>
           </ul>
         </div>
       </nav>

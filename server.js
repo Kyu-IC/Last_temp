@@ -26,10 +26,11 @@ app.post('/api/register', async (req, res) => {
   console.log('Confirm Password:', confirmPassword);
 
   // Trim the inputs to remove any leading/trailing whitespace
-  username = username?.trim();
-  email = email?.trim();
-  password = password?.trim();
-  confirmPassword = confirmPassword?.trim();
+  username = username ? username.trim() : '';
+  email = email ? email.trim() : '';
+  password = password ? password.trim() : '';
+  confirmPassword = confirmPassword ? confirmPassword.trim() : '';
+  
 
   // Log the trimmed values
   console.log('Trimmed Username:', username);

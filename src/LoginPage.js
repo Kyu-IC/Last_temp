@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';  // Use Link instead of <a> and add useNavigate
 import './login.css'; // Import the CSS for styling
 
 const LoginPage = () => {
@@ -35,8 +35,8 @@ const LoginPage = () => {
         localStorage.setItem('isAuthenticated', 'true'); // Mark user as authenticated
         localStorage.setItem('username', data.username); // Save username
 
-        // Redirect to the main page
-        navigate('/main');
+        // Use navigate() to redirect to the main page
+        navigate('/main');  // This will allow React Router to handle the routing
       } else {
         // Show error message if login fails
         setError(data.message || 'Invalid email or password');
@@ -77,7 +77,8 @@ const LoginPage = () => {
 
           <div className="login-page__signup-text">
             <span className="login-page__dont-have-account">Don't have an account?</span>
-            <a href="/register" className="login-page__sign-up">Sign up</a>
+            {/* Use React Router's <Link> instead of <a> */}
+            <Link to="/register" className="login-page__sign-up">Sign up</Link>
           </div>
         </form>
       </div>

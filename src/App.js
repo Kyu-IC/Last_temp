@@ -1,17 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginPage from './LoginPage';
+import RegisterPage from './RegisterPage';
 import MainPage from './MainPage';
-import RegisterPage from './RegisterPage'; // Assuming you have a RegisterPage
 
 function App() {
   return (
-    <Router>
-      <Routes>
+    <Router> {/* This enables routing in your app */}
+      <Routes> {/* Define routes for the app */}
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/main" element={<MainPage />} />
         <Route path="/register" element={<RegisterPage />} />
-        {/* Add more routes as needed */}
+        <Route path="/main" element={<MainPage />} />
       </Routes>
     </Router>
   );
