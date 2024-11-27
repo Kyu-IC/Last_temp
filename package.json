@@ -6,6 +6,9 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
     "font-awesome": "^4.7.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -36,5 +39,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kyu-IC/Temporary-work.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kyu-IC/Temporary-work/issues"
+  },
+  "homepage": "https://github.com/Kyu-IC/Temporary-work#readme"
 }

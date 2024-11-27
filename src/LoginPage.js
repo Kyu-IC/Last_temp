@@ -1,23 +1,48 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import { useNavigate } from 'react-router-dom';
 import './login.css'; // Import the CSS for styling
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(false);
+  const [error, setError] = useState('');
   const navigate = useNavigate(); // Initialize navigate function
 
-  const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent form from submitting
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent default form submission
 
-    // Example check (replace with actual validation logic)
-    if (email === "" || password === "" || email !== "test@example.com" || password !== "123") {
-      setError(true); // Show error message
-    } else {
-      setError(false); // Clear error message
-      // Redirect to MainPage.js using React Router
-      navigate('/main');
+    // Check if email and password are provided
+    if (!email || !password) {
+      setError('Please enter both email and password.');
+      return;
+    }
+
+    // Send login request to the backend API
+    try {
+      const response = await fetch('http://localhost:3001/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }), // Send email and password in the request body
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // If login is successful, store token, username, and authentication flag
+        localStorage.setItem('token', data.token); // Save JWT token in localStorage
+        localStorage.setItem('isAuthenticated', 'true'); // Mark user as authenticated
+        localStorage.setItem('username', data.username); // Save username
+
+        // Redirect to the main page
+        navigate('/main');
+      } else {
+        // Show error message if login fails
+        setError(data.message || 'Invalid email or password');
+      }
+    } catch (error) {
+      setError('Network error. Please try again later.');
     }
   };
 
@@ -33,7 +58,7 @@ const LoginPage = () => {
             name="email"
             placeholder="Enter your email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)} // Handle email input change
+            onChange={(e) => setEmail(e.target.value)} 
             required
           />
           <label htmlFor="password">Password</label>
@@ -43,30 +68,16 @@ const LoginPage = () => {
             name="password"
             placeholder="Enter your password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)} // Handle password input change
+            onChange={(e) => setPassword(e.target.value)} 
             required
           />
-
-          <div className="login-page__options">
-            <label>
-              <input type="checkbox" name="remember" /> Remember me
-            </label>
-            <a href="#">Forgot password</a>
-          </div>
-
           <button type="submit">Sign in</button>
 
-          {/* Show error message if credentials are incorrect */}
-          {error && (
-            <div className="login-page__error-message">
-              Invalid username or password
-            </div>
-          )}
+          {error && <div className="login-page__error-message">{error}</div>}
 
-          {/* Sign up section */}
           <div className="login-page__signup-text">
             <span className="login-page__dont-have-account">Don't have an account?</span>
-            <a href="/sign-up" className="login-page__sign-up">Sign up</a>
+            <a href="/register" className="login-page__sign-up">Sign up</a>
           </div>
         </form>
       </div>

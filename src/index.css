@@ -12,9 +12,3 @@ code {
     monospace;
 }
 
-/* Ensure html and body take full screen */
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
