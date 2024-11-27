@@ -1,0 +1,329 @@
+/* Main container and layout */
+
+/* Ensure html and body take full height */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  background-color: #a5d2ff;
+  min-height: 100vh; /* Ensure full-screen height */
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  width: 100%; /* Ensure the container takes up the full width */
+}
+
+.main-container > .content {
+  flex-grow: 1;
+}
+
+/* Header Section */
+.header {
+  background-color: #1877f2;
+  color: rgb(223, 223, 223);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Logo and Branding */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.branding-section .logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.branding-section .highlight {
+  color: #ffffff; /* Highlight color */
+}
+
+/* Search Section */
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 25px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-icon {
+  margin-right: 10px;
+}
+
+.search-bar {
+  border: none;
+  outline: none;
+  padding: 5px 10px;
+  width: 200px;
+  border-radius: 25px;
+}
+
+/* Dropdown Menu */
+.menu-icon {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 20px;
+  top: 60px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  width: 200px;
+  display: none;
+}
+
+.dropdown-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.dropdown-menu li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.dropdown-menu li:last-child {
+  border-bottom: none;
+}
+
+.profile-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.profile-name {
+  font-size: 14px;
+}
+
+.dropdown-menu li a {
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #f4f4f4;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px; /* You can keep this width, or set it as a percentage for dynamic scaling */
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100vh;
+  flex-shrink: 0;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.profile-pic {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #ccc;
+}
+
+.username {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.navigation ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navigation li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.navigation li:hover {
+  background-color: #f4f4f4;
+}
+
+/* Main Content Section */
+.main {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 20px;
+  width: 100%; /* Ensure the main section takes up full width */
+}
+
+/* Create Post Box */
+.create-post-container {
+  margin: 10px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex-grow: 1; /* Allow this section to grow and fill space */
+}
+
+.create-post-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-post-input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 5px;
+  resize: none;
+}
+
+.post-button {
+  background-color: #1877f2;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.post-button:hover {
+  background-color: #165eab;
+}
+
+/* Posts Feed */
+.feed {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.post-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.username {
+  font-weight: bold;
+  color: #1877f2;
+}
+
+.actions {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Default button style */
+.actions button {
+  background-color: #f4f4f4;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+/* Style for the liked button */
+.actions button.liked {
+  color: #ff6347; /* Change font color to a red shade when liked */
+}
+
+.actions button:hover {
+  background-color: #ddd;
+}
+
+.actions button:active {
+  background-color: #ccc;
+}
+
+/* Friends Space */
+.friends-space {
+  width: 250px;
+  background-color: #fff;
+  padding: 20px;
+  margin-left: 200px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.friends-space p {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Additional tweaks for responsiveness */
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .friends-space {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .create-post-container {
+    margin-bottom: 20px;
+  }
+
+  .feed {
+    margin-top: 10px;
+  }
+}
