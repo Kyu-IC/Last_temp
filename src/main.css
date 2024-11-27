@@ -1,0 +1,81 @@
+/* Apply the 'Itim' font to the whole page */
+body {
+  font-family: 'Itim', sans-serif; /* Fallback to sans-serif if the font fails to load */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  box-sizing: border-box; /* Ensure padding and border don't affect element width/height */
+}
+
+/* Basic styling for the navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 20px;
+  position: fixed;  /* Fix the navbar at the top */
+  top: 0; /* Position the navbar at the top of the page */
+  left: 0; /* Align it to the left */
+  right: 0; /* Align it to the right */
+  z-index: 1000; /* Ensure it appears above other content */
+  width: 100%; /* Make the navbar stretch across the entire page */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add some shadow for separation */
+}
+
+.navbar-logo a {
+  color: white;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center; /* Center align items vertically */
+  justify-content: flex-end; /* Align everything in the right section to the right */
+}
+
+.navbar-search {
+  position: relative;
+  margin-right: 20px; /* Space between search bar and Sign In */
+}
+
+.navbar-search input {
+  padding: 8px 30px 8px 10px; /* Adjust padding to create space for icon */
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  width: 200px;
+}
+
+.navbar-search .search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #aaa;
+  font-size: 18px;
+}
+
+.navbar-links {
+  list-style-type: none;
+  display: flex;
+}
+
+.navbar-links li {
+  margin-left: 20px;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.navbar-links a:hover {
+  color: #ff6347;  /* Change color when hovered */
+}
+
+/* Add padding to the body to prevent content from being hidden under the fixed navbar */
+body {
+  padding-top: 60px; /* Adjust this value to match the height of your navbar */
+}

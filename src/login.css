@@ -1,0 +1,195 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e9e9e9;
+    color: #000;
+    margin: 0;
+    /* Removed center-align from the body */
+}
+
+/* Login Container */
+.login-page__container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the container */
+    display: flex;
+    flex-wrap: wrap;
+    width: 1000px;
+    height: 600px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Login Section */
+.login-page__section {
+    background-color: #fff;
+    padding: 50px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-page__section h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.login-page__section label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.login-page__section input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.login-page__section button {
+    background-color: #6a5acd;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    width: 100%;
+}
+
+.login-page__section button:hover {
+    background-color: #5748c5;
+}
+
+/* Sign Up Section */
+.login-page__signup-text {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.login-page__dont-have-account {
+    color: #333;
+}
+
+.login-page__sign-up {
+    color: #6a5acd;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.login-page__sign-up:hover {
+    text-decoration: underline;
+}
+
+/* Options Section */
+.login-page__options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.login-page__options label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+}
+
+.login-page__options input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+}
+
+.login-page__options a {
+    color: #4a4aff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.login-page__options a:hover {
+    text-decoration: underline;
+}
+
+/* Branding Section */
+.login-page__branding-section {
+    background-color: #838DFF;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+}
+
+.login-page__branding-section .logo {
+    font-size: 72px !important;
+    font-weight: bold;
+    color: #000;
+}
+
+.login-page__branding-section .logo span {
+    color: #fff;
+}
+
+.login-page__branding-section p {
+    font-size: 32px;
+    font-weight: bold;
+    color: #fff;
+    margin-top: 20px;
+}
+
+/* Logo Styling */
+.login-page__logo {
+    font-size: 72px;
+    font-weight: bold;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+
+.login-page__logo .highlight {
+    background-color: #fff;
+    color: #838DFF !important;
+    padding: 8px 10px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+/* Bottom Right Text */
+.login-page__bottom-right-text {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Error Message */
+.login-page__error-message {
+    color: red;
+    font-size: 16px;
+    margin-top: 15px;
+}
