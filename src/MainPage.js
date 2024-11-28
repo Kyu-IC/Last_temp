@@ -6,6 +6,7 @@ function MainPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [postHeader, setPostHeader] = useState('');
   const [postContent, setPostContent] = useState('');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
 
   // Get the username from localStorage
@@ -13,9 +14,11 @@ function MainPage() {
 
   // Check if the user is authenticated when the page loads
   useEffect(() => {
-    const isAuthenticated = localStorage.getItem('isAuthenticated');
-    if (!isAuthenticated) {
+    const authStatus = localStorage.getItem('isAuthenticated');
+    if (!authStatus) {
       navigate('/login');  // Redirect to login if not authenticated
+    } else {
+      setIsAuthenticated(true); // Set authentication state
     }
   }, [navigate]);
 
@@ -27,8 +30,8 @@ function MainPage() {
   // Close the modal popup
   const closeModal = () => {
     setIsModalOpen(false);
-    setPostHeader(''); // Reset header
-    setPostContent(''); // Reset post content
+    setPostHeader('');
+    setPostContent('');
   };
 
   // Handle the input change for header
@@ -54,7 +57,8 @@ function MainPage() {
     localStorage.removeItem('isAuthenticated');
     localStorage.removeItem('token');
     localStorage.removeItem('username');
-    navigate('/login');  // Redirect to login page
+    setIsAuthenticated(false); // Update auth state
+    navigate('/login');
   };
 
   // Navigate to the RegisterPage
@@ -70,14 +74,16 @@ function MainPage() {
         </div>
         <div className="navbar-right">
           <ul className="navbar-links">
-            <li><a href="#" onClick={handleLogout}>Logout</a></li>
-            {/* Add the redirect to register page */}
-            <li><a href="#" onClick={redirectToRegisterPage}>Sign up</a></li>
+            {isAuthenticated && <li><a href="#" onClick={handleLogout}>Logout</a></li>}
+            {/* Display "Sign up" only if the user is not authenticated */}
+            {!isAuthenticated && (
+              <li><a href="#" onClick={redirectToRegisterPage}>Sign up</a></li>
+            )}
           </ul>
         </div>
       </nav>
 
-      {/* Display username under the navbar */}
+      {/* Display username under the navbar if authenticated */}
       {username && (
         <div className="username-display">
           <span>Welcome, {username}!</span>
@@ -85,18 +91,20 @@ function MainPage() {
       )}
 
       {/* Outer container with clickable placeholder for creating posts */}
-      <div className="post-container" onClick={openModal}>
-        <div className="post-container-wrapper">
-          <input
-            type="text"
-            className="post-textbox"
-            placeholder="What's on your mind?"
-            readOnly
-          />
-          <div className="horizontal-line"></div>
-          <div className="mamamiya-text">Post</div>
+      {isAuthenticated && (
+        <div className="post-container" onClick={openModal}>
+          <div className="post-container-wrapper">
+            <input
+              type="text"
+              className="post-textbox"
+              placeholder="What's on your mind?"
+              readOnly
+            />
+            <div className="horizontal-line"></div>
+            <div className="mamamiya-text">Post</div>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Modal Popup for writing a post */}
       {isModalOpen && (

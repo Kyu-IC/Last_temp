@@ -6,8 +6,9 @@ import MainPage from './MainPage';
 
 function App() {
   return (
-    <Router> {/* This enables routing in your app */}
-      <Routes> {/* Define routes for the app */}
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />  {/* Default route, LoginPage */}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/main" element={<MainPage />} />
@@ -17,3 +18,4 @@ function App() {
 }
 
 export default App;
+  

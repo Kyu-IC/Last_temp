@@ -1,13 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';  // Use 'react-dom/client' for React 18
 import './index.css';
-import LoginPage from './LoginPage'; // Import the LoginPage component
-import { BrowserRouter as Router } from 'react-router-dom'; // Router for navigation
+import App from './App';   // Import the App component (which already includes the Router)
 
-// Render LoginPage component inside the div with id 'root'
-ReactDOM.render(
-  <Router>
-    <LoginPage />  {/* This should be your entry point */}
-  </Router>,
-  document.getElementById('root')
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />  {/* Render the App component */}
+  </React.StrictMode>
 );

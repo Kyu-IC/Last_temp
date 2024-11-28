@@ -1,48 +1,50 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';  // Use Link instead of <a> and add useNavigate
-import './login.css'; // Import the CSS for styling
+import { Link, useNavigate } from 'react-router-dom'; // Correct imports for navigation
+import './login.css'; // Ensure CSS file is correctly applied
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate(); // Initialize navigate function
+  const navigate = useNavigate(); // For navigation after successful login
 
   const handleSubmit = async (event) => {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault();
 
-    // Check if email and password are provided
+    // Validate if email and password are entered
     if (!email || !password) {
       setError('Please enter both email and password.');
       return;
     }
 
-    // Send login request to the backend API
     try {
+      // Make POST request to login API
       const response = await fetch('http://localhost:3001/api/login', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }), // Send email and password in the request body
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
       });
 
-      const data = await response.json();
-
+      // Check if the response status is OK (200-299)
       if (response.ok) {
-        // If login is successful, store token, username, and authentication flag
-        localStorage.setItem('token', data.token); // Save JWT token in localStorage
-        localStorage.setItem('isAuthenticated', 'true'); // Mark user as authenticated
-        localStorage.setItem('username', data.username); // Save username
+        const data = await response.json();
 
-        // Use navigate() to redirect to the main page
-        navigate('/main');  // This will allow React Router to handle the routing
+        // Store JWT token and user info if login is successful
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('isAuthenticated', 'true');
+        localStorage.setItem('username', data.username);
+
+        // Navigate to the main page after successful login
+        navigate('/main');
       } else {
-        // Show error message if login fails
+        // Handle failed login attempt (invalid credentials, etc.)
+        const data = await response.json();
         setError(data.message || 'Invalid email or password');
       }
     } catch (error) {
+      // Handle network errors
       setError('Network error. Please try again later.');
+      console.error('Error during login:', error);
     }
   };
 
@@ -77,7 +79,6 @@ const LoginPage = () => {
 
           <div className="login-page__signup-text">
             <span className="login-page__dont-have-account">Don't have an account?</span>
-            {/* Use React Router's <Link> instead of <a> */}
             <Link to="/register" className="login-page__sign-up">Sign up</Link>
           </div>
         </form>
