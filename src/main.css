@@ -1,15 +1,16 @@
+/* General body styles */
 body {
   font-family: 'Itim', sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Added this line for consistent box-sizing */
   background-color: #f0f2f5; /* Light background similar to Facebook */
 }
 
 /* Navbar styles */
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Space between logo and right-aligned items */
   align-items: center;
   background-color: #1877f2; /* Facebook Blue */
   padding: 10px 20px;
@@ -26,6 +27,37 @@ body {
   font-size: 24px;
   text-decoration: none;
   font-weight: bold;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  flex-grow: 1; /* Ensure the left side takes up available space */
+}
+
+.navbar-search {
+  margin-right: 20px; /* Add spacing between the search bar and the login button */
+  flex-shrink: 0; /* Prevent the search bar from shrinking */
+}
+
+/* Navbar Search Bar */
+.search-bar {
+  width: 250px; /* Adjust the width to make the search bar longer */
+  padding: 8px;
+  background-color: #e6e6e6;
+  color: #6c757d;
+  font-size: 14px;
+  border: none;
+  border-radius: 15px;
+  outline: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+
+/* Navbar Links */
+.navbar-right {
+  display: flex;
+  align-items: center;
 }
 
 .navbar-links {
@@ -47,7 +79,7 @@ body {
 .post-container {
   display: flex;
   justify-content: center;
-  margin-top: 80px;
+  margin-top: 80px; /* Add space to compensate for fixed navbar */
 }
 
 .post-container-wrapper {
@@ -77,41 +109,36 @@ body {
   margin: 10px 0;
 }
 
-/* Post Textbox Styling (Textbox with placeholder inside the outer container) */
+/* Post Textbox Styling */
 .post-textbox {
   width: 100%;
   padding: 8px 15px;
   background-color: #e6e6e6; /* Slightly darker background for the placeholder area */
   color: #6c757d; /* Darker gray color for the placeholder text */
-  font-size: 14px; /* Smaller font size for the placeholder */
-  border: none; /* Remove border since the outer container has it */
-  text-align: left; /* Align the text inside the placeholder to the left */
+  font-size: 14px;
+  border: none;
+  text-align: left;
   font-family: 'Itim', sans-serif;
-  height: 40px; /* Fixed height for the placeholder area */
-  resize: none; /* Prevent resizing */
-  overflow-y: hidden; /* Prevent vertical scrolling */
-  border-radius: 20px; /* Round the corners of the textbox */
-  margin-top: 5px; /* Add some spacing to move it down slightly */
-  transition: background-color 0.3s ease-in-out; /* Smooth transition for background color change */
+  height: 40px;
+  resize: none;
+  overflow-y: hidden;
+  border-radius: 20px;
+  margin-top: 5px;
+  transition: background-color 0.3s ease-in-out;
 }
 
-/* Hover Effect: Slightly darker background when hovering */
 .post-textbox:hover {
-  background-color: #e4e6eb; /* Slightly darker background when hovering */
+  background-color: #e4e6eb;
 }
 
-/* Placeholder Styling: Slightly darker placeholder color on hover */
 .post-textbox::placeholder {
-  color: #495057; /* Darker gray for the placeholder */
-  opacity: 1; /* Ensure the placeholder is visible */
-  transition: color 0.3s ease; /* Smooth transition for the placeholder text color */
+  color: #495057;
+  opacity: 1;
 }
 
-/* Hover Effect for Placeholder */
 .post-textbox:hover::placeholder {
-  color: #343a40; /* Even darker gray for the placeholder text on hover */
+  color: #343a40;
 }
-
 
 /* Modal styles */
 .modal-overlay {
@@ -126,7 +153,6 @@ body {
   align-items: center;
 }
 
-/* Close button (X) in the modal */
 .modal-close-button {
   position: absolute;
   top: 15px;
@@ -139,12 +165,11 @@ body {
 }
 
 .modal-close-button:hover {
-  color: #555;  /* Darker color on hover */
+  color: #555;
 }
 
-/* Modal content with relative positioning to place the X button */
 .modal-content {
-  position: relative; /* Needed for the "X" button positioning */
+  position: relative;
   background-color: white;
   width: 100%;
   max-width: 600px;
@@ -156,32 +181,32 @@ body {
   align-items: center;
 }
 
-
 /* Style for modal close button */
 .modal-close-button {
   position: absolute;
-  top: 10px;                /* Adjust distance from top */
-  right: 10px;              /* Adjust distance from right */
-  width: 32px;              /* Set button width (circle diameter) */
-  height: 32px;             /* Set button height (circle diameter) */
-  border-radius: 50%;       /* Make it a circle */
-  background-color: #e2e2e2; /* Background color of circle */
-  border: none;             /* Remove default border */
-  font-size: 20px;          /* Adjust size of the "✕" */
-  font-weight: bold;        /* Make the "✕" bold */
-  display: flex;            /* Use flexbox for centering */
-  align-items: center;      /* Vertically center the "✕" */
-  justify-content: center;  /* Horizontally center the "✕" */
-  cursor: pointer;          /* Show pointer cursor on hover */
-  color: #333;              /* Color of the "✕" */
-  transition: background-color 0.3s, color 0.3s;  /* Smooth hover effect */
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #e2e2e2;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* Hover effect for close button */
 .modal-close-button:hover {
-  background-color: #5f5f5f;  /* Background color on hover (red) */
-  color: #fff;                /* Change "✕" color to white */
+  background-color: #5f5f5f;
+  color: #fff;
 }
+
+
 
 .post-header {
   width: 100%;
@@ -202,36 +227,30 @@ body {
   margin-bottom: 15px;
 }
 
-/* Default (inactive) button style */
-/* Post Submit Button - Full Width */
-/* Modal Buttons Container */
 .modal-buttons {
-  width: 100%; /* Ensure the container takes full width */
-  padding: 0; /* Remove padding */
+  width: 100%;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Post Submit Button - Full Width */
 .post-submit-button {
-  width: 100%; /* Make button take full width of the container */
-  padding: 12px 25px; /* Adjust padding */
-  background-color: #ccc; /* Grey when inactive */
+  width: 100%;
+  padding: 12px 25px;
+  background-color: #ccc;
   color: white;
   border: none;
   border-radius: 5px;
   font-size: 16px;
-  cursor: not-allowed; /* Disabled state */
-  transition: background-color 0.3s ease; /* Smooth transition for background-color change */
+  cursor: not-allowed;
+  transition: background-color 0.3s ease;
 }
 
-/* Active Button */
 .post-submit-button.active {
-  background-color: #6a5acd; /* Change background color when the button is active */
-  cursor: pointer; /* Normal cursor when active */
+  background-color: #6a5acd;
+  cursor: pointer;
 }
-
 
 /* Style for username display */
 .username-display {
@@ -242,3 +261,174 @@ body {
   background-color: #f5f5f5;
   border-bottom: 1px solid #ddd;
 }
+
+/* Post Section */
+.posts-section {
+  margin: 20px auto;
+  max-width: 600px;
+  padding: 10px;
+}
+
+.post-card {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post-card-header {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.post-card-content {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.post-card-author {
+  font-size: 16px;           /* Increase font size */
+  color: #333;               /* Darker color for better visibility */
+  font-weight: bold;         /* Make the text bold */
+  margin-bottom: 10px;       /* Space between author and header */
+  text-transform: capitalize;/* Optional: Capitalize the username */
+}
+
+/* Post Card Actions Container */
+.post-card-actions {
+  display: flex;
+  justify-content: space-between; /* Distribute buttons evenly */
+  margin-top: 10px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+
+/* Like and Comment Buttons */
+.like-button,
+.comment-button {
+  background-color: #f0f2f5;      /* Match the post card background */
+  border: none;
+  flex: 1;                       /* Make buttons expand to fill space */
+  padding: 12px 0;               /* Add vertical padding */
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 0;              /* Remove border-radius */
+  color: #1877f2;                /* Facebook blue for button text */
+  font-weight: bold;
+}
+
+/* Button Hover Effect */
+.like-button:hover,
+.comment-button:hover {
+  background-color: #e4e6eb;     /* Slightly darker background on hover */
+}
+
+/* Add a border between buttons */
+.like-button {
+  border-right: 1px solid #ccc;
+}
+
+.like-button:active {
+  background-color: #bfbfbf;
+}
+
+/* Dropdown Button */
+/* Dropdown Menu Styles */
+.post-actions {
+  position: relative;
+}
+
+.dropdown-toggle {
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  color: #6c757d;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.dropdown-toggle:hover {
+  color: #1877f2; /* Change to blue when hovered */
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 30px; /* Adjust this value based on your layout */
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 150px;
+  z-index: 10;
+}
+
+.dropdown-menu button {
+  width: 100%;
+  padding: 8px 15px;
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  text-align: left;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.3s;
+}
+
+.dropdown-menu button:hover {
+  background-color: #f0f2f5;
+}
+
+.edit-button,
+.delete-button {
+  color: #1877f2; /* Blue color for actions */
+}
+
+.edit-button:hover,
+.delete-button:hover {
+  color: #0056b3; /* Darker blue when hovered */
+}
+
+.comment-input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.comment {
+  padding: 10px;
+  border-top: 1px solid #eee;
+}
+
+.comment-author {
+  font-weight: bold;
+}
+
+.comment-content {
+  margin: 5px 0;
+}
+
+/* Default delete button style */
+.delete-comment {
+  background-color: transparent;
+  color: red; /* Main color */
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: color 0.2s, opacity 0.2s; /* Smooth transition for color and opacity */
+}
+
+/* Lighter button effect on hover */
+.delete-comment:hover {
+  color: #ff6666; /* Lighter red shade for hover effect */
+  opacity: 0.7; /* Slightly faded effect */
+  background-color: transparent;
+}
+
